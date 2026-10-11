@@ -1,0 +1,43 @@
+# AI Assistant Android
+
+This project is a production-oriented Android app skeleton in Kotlin for an AI assistant that can:
+
+- listen to voice commands using the microphone
+- speak responses using text-to-speech
+- handle call context and call assistance workflows
+- read or reply to messages in an SMS-friendly architecture
+- learn habits and track routines locally with Room
+- connect to an LLM backend with an OpenAI-compatible API
+
+## Architecture
+
+- Jetpack Compose for UI
+- ViewModel + StateFlow for app state
+- Room for local habit and message persistence
+- Retrofit for AI API integration
+- VoiceRecognizer + TextToSpeech-compatible hooks for voice interaction
+
+## Important notes
+
+This repository is intentionally a solid starting point and production-minded foundation. It is not a full, Google Play-ready implementation of all permissions and telecom features, because Android imposes strict limitations for default SMS and call handling. In a production build, you should:
+
+- add privacy consent and user control screens
+- implement a proper default SMS role flow
+- use Android telecom APIs and accessibility/role-based call handling carefully
+- add user authentication, encryption, and data retention controls
+- store cloud API keys securely using `BuildConfig` or an encrypted backend
+
+## Build
+
+```bash
+./gradlew assembleDebug
+```
+
+## Next steps
+
+1. Replace the placeholder OpenAI API key in `AIService.kt` with a secure provider configuration.
+2. Add a full Text-to-Speech implementation and a real speech-to-text lifecycle.
+3. Add default SMS and call permission flows for production usage.
+4. Implement habit learning logic with user-specific scheduling and reminders.
+5. Add a secure backend for privately storing assistant memory and user preference data.
+
